@@ -1,0 +1,100 @@
+  <div class="row header col-xs-12">
+    <div class="user pull-right">
+      <div class="item dropdown">
+        <a href="#" class="dropdown-toggle"><img src="img/avatar.jpg" alt=""></a>
+      </div>
+    </div>
+
+    <div class="meta">
+      <div class="page">Dashboard</div>
+      <div class="breadcrumb-links">Home / Dashboard</div>
+    </div>
+  </div>
+  <div class="row">
+            <a ui-sref="root.users">
+              <div class="col-lg-3 col-md-6 col-xs-12">
+                <div class="widget">
+                  <div class="widget-header">
+                    <div class="widget-icon green pull-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="title">{{vm.users.length}}</div>
+                    <div class="comment">Users</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a ui-sref="root.widgets">
+              <div class="col-lg-3 col-md-6 col-xs-12">
+                <div class="widget">
+                  <div class="widget-header">
+                    <div class="widget-icon green pull-left">
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="title">{{vm.widgets.length}}</div>
+                    <div class="comment">Widgets</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Tables -->
+          <div class="row">
+
+            <!-- Users listing -->
+            <div class="col-lg-6">
+              <div class="widget">
+                <div class="widget-header">Users
+                  <div class="pull-right">
+                    
+                    <input type="text" class="form-control input-sm" ng-model="query" placeholder="Search Users">
+                    
+                    </div>
+                </div>
+                <div class="table-responsive mainTable">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="text-center" ng-click="sortType='id'; sortReverse = !sortReverse ">ID</th>
+                        <th ng-click="sortType='name'; sortReverse = !sortReverse ">Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="user in vm.users | orderBy:sortType:sortReverse | filter:query">
+                      
+                        <td class="text-center">{{user.id}}</td>
+                        <td><a ui-sref="root.singleUser({id: user.id})">{{user.name}}</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div><!-- End Users -->
+
+            <!-- Widget listing -->
+            <div class="col-lg-6">
+              <div class="widget">
+                <div class="widget-header">Widgets
+                  <div class="pull-right"><input type="text" class="form-control input-sm" ng-model="query2" placeholder="Search Widgets"></div>
+                </div>
+                <div class="table-responsive mainTable">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="text-center" ng-click="sortType2='id'; sortReverse2 = !sortReverse2 ">ID</th>
+                        <th ng-click="sortType2='name'; sortReverse2 = !sortReverse2 ">Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="widget in vm.widgets | orderBy:sortType2:sortReverse2 | filter:query2">
+                        <td class="text-center">{{widget.id}}</td>
+                        <td><a ui-sref="root.singleWidget({id: widget.id})">{{widget.name}}</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h4 ng-show="vm.noWidgets">Sorry! Nothing matched your search</h4>
+                </div>
+              </div>
+            </div><!-- End Widgets -->
+  </div>

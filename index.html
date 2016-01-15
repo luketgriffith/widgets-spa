@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Widget Factory!</title>
+    <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  </head>
+  <body>
+    <div ui-view></div>
+
+    <script src="main.js"></script>
+    <script src="services/widget_service.js"></script>
+    <script src="services/users_service.js"></script>
+    <script src="controllers/homeController.js"></script>
+    <script src="controllers/userController.js"></script>
+    <script src="controllers/widgetController.js"></script>
+    <script src="controllers/singleWidgetController.js"></script>
+    <script src="controllers/singleUserController.js"></script>
+  </body>
+</html>

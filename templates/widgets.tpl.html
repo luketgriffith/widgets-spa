@@ -1,0 +1,120 @@
+<div class="row header col-xs-12">
+            <div class="user pull-right">
+              <div class="item dropdown">
+                <a href="#" class="dropdown-toggle"><img src="img/avatar.jpg" alt=""></a>
+              </div>
+            </div>
+            <div class="meta">
+              <div class="page">Dashboard</div>
+              <div class="breadcrumb-links"><a ui-sref="root.home">Home</a> / Widgets</div>
+            </div>
+          </div>
+          <!-- End Header Bar -->
+
+
+          <!-- Tables -->
+          <div class="row">
+
+            <!-- Widget listing -->
+            <div class="col-lg-12">
+              <div class="widget">
+                <div class="widget-header">Widgets <input type="text" class="widgetInput" ng-model="query" placeholder="Search">
+
+                  <div class="pull-right">
+                    <button class="btn btn-sm btn-info" ng-click="vm.createWidget=true">+ Create</button>
+                  </div>
+                </div>
+                <div class="table-responsive" id="widget_table" ng-hide="vm.createWidget">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="text-center" ng-click="sortType='id'; sortReverse = !sortReverse ">ID</th>
+                        <th ng-click="sortType='name'; sortReverse = !sortReverse ">Name</th>
+                        <th ng-click="sortType='color'; sortReverse = !sortReverse ">Color</th>
+                        <th ng-click="sortType='price'; sortReverse = !sortReverse ">Price</th>
+                        <th ng-click="sortType='melts'; sortReverse = !sortReverse ">Melts?</th>
+                        <th ng-click="sortType='inventory'; sortReverse = !sortReverse ">Inventory</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                      <tr ng-repeat="widget in vm.widgets | orderBy:sortType:sortReverse | filter:query">
+                          <td class="text-center">{{widget.id}}</td>
+                          <td><a ui-sref="root.singleWidget({id: widget.id})">{{widget.name}}</a></td>
+                          <td>{{widget.color}}</td>
+                          <td>${{widget.price}}</td>
+                          <td>{{widget.melts}}</td>
+                          <td>{{widget.inventory}}</td>
+                      </tr>
+                          
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div><!-- End Widgets -->
+
+          </div><!-- End Row -->
+
+          <hr>
+
+          <!-- Create/Edit -->
+          <div class="row">
+
+            <!-- Widget listing -->
+            <div class="col-lg-12" ng-show="vm.createWidget">
+              <div class="widget">
+                <div class="widget-header">Create/Edit Template</div>
+                <div class="widget-body">
+                  <form class="form-horizontal" ng-submit="vm.addWidget(vm.widget)">
+                  <span ng-click="vm.createWidget=false" class="closeForm">X</span>
+
+                    <legend>Create Widget</legend>
+
+                    <!-- Name-->
+                    <div class="controls">
+                    Name
+                      <input id="widget-name" name="widget-name" type="text" placeholder="Widget Name" class="input-medium" ng-model="vm.widget.name" required>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="controls">
+                      <div class="input-prepend">
+                      Price
+                        <span class="add-on">$</span>
+                        <input id="widget-price" name="widget-price" class="input-medium" placeholder="0.00" type="text" ng-model="vm.widget.price" required>
+                      </div>
+                    </div>
+
+                    <!-- Color -->
+                    <div class="controls">
+                    Color
+                      <select id="widget-color" name="widget-color" class="input-large" ng-model=
+                      "vm.widget.color" required>
+                        <option value="">Choose Color</option>
+                        <option>red</option>
+                        <option>purple</option>
+                        <option>black</option>
+                        <option>green</option>
+                        <option>magenta</option>
+                        <option>white</option>
+                        <option>depends on the viewing angle</option>
+                      </select>
+                    </div>
+
+                    <!-- Melts -->
+                    <div class="controls">
+                      Melts
+                      <input type="checkbox" name="widget-properties" id="widget-properties-0" value="melts" ng-model="vm.widget.melts">
+                    </div>
+
+                    <!-- Inventory -->
+                    <div class="controls">
+                      Inventory
+                      <input id="widget-count" name="widget-count" type="text" placeholder="#?" class="input-small" ng-model="vm.widget.inventory">
+                    </div>
+                    <button>Add</button><span ng-show="vm.widgetShow">Added!</span>
+                  </form>
+                </div><!-- End Widget body -->
+              </div><!-- End Widget -->
+            </div><!-- End Column -->
+          </div><!-- End Row -->
