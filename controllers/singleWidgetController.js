@@ -9,7 +9,7 @@
       vm.showEditWidget = false;
       vm.getSingleWidget = function(){
         var id = $stateParams.id;
-        // console.log(id);
+        
         WidgetService.getSingleWidget(id)
           .success(function(data){
             console.log(data);
@@ -18,7 +18,7 @@
       }
 
       vm.editWidget = function(widget){
-        // console.log(widget);
+        
         WidgetService.updateWidget(widget)
           .success(function(data){
             vm.showEditWidget = false;
