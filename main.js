@@ -32,6 +32,11 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: 'templates/singleWidget.tpl.html',
       controller: 'SingleWidgetController as vm'
     })
+    .state('root.wat', {
+      url: '/wat',
+      templateUrl: 'templates/wat.tpl.html',
+      controller: 'WatController as vm'
+    })
 
 });
 

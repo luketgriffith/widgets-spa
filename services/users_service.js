@@ -6,12 +6,12 @@
     .service('UsersService', UsersService);
       UsersService.$inject = ['$http'];
       function UsersService($http){
-        var url = 'http://spa.tglrw.com:4000/';
+        var url = 'https://afternoon-beach-66107.herokuapp.com/';
         this.getUsers = getUsers;
         this.getSingleUser = getSingleUser;
 
         function getUsers(){
-          return $http.get(url + 'users')
+          return $http.get('/users')
         }
         
         function getSingleUser(id){

@@ -6,7 +6,7 @@
     .service('WidgetService', WidgetService);
       WidgetService.$inject = ['$http'];
       function WidgetService($http){
-        var url = 'http://spa.tglrw.com:4000/';
+        var url = 'https://afternoon-beach-66107.herokuapp.com/';
         this.getWidgets = getWidgets;
         this.addWidget = addWidget;
         this.getSingleWidget = getSingleWidget;

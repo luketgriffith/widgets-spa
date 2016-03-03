@@ -5,7 +5,7 @@
     WidgetController.$inject = ['$http', 'UsersService', 'WidgetService', '$scope']
     function WidgetController($http, UsersService, WidgetService, $scope){
       var vm = this;
-      vm.url = 'http://spa.tglrw.com:4000/';
+      vm.url = 'https://afternoon-beach-66107.herokuapp.com/';
       vm.getWidgets = function(){
         WidgetService.getWidgets()
           .success(function(data){

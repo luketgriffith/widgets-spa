@@ -5,7 +5,7 @@
     SingleWidgetController.$inject = ['$http', 'UsersService', 'WidgetService', '$stateParams']
     function SingleWidgetController($http, UsersService, WidgetService, $stateParams){
       var vm = this;
-      vm.url = 'http://spa.tglrw.com:4000/';
+      vm.url = 'https://afternoon-beach-66107.herokuapp.com/';
       vm.showEditWidget = false;
       vm.getSingleWidget = function(){
         var id = $stateParams.id;
